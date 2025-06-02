@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - National University</title>
+<style>
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #332D56;
+  color: #4E6688;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #71C0BB;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.nulogotext img {
+  height: 80px;
+  width: auto;
+  cursor: pointer;
+  transition: height 0.3s ease;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+}
+
+.navbar li a.active {
+  background-color: #4E6688;
+  color: #E3EEB2;
+  border-radius: 20px;
+}
+
+.active :hover {
+  background-color: #71C0BB;
+  color: #4E6688;
+  border-radius: 20px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #E3EEB2;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+
+.navbar li a:hover{
+  color: #4e7a88;
+}
+
+/* Container Layout */
+.container {
+  max-width: 1200px;
+  margin: 100px auto 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.text-container {
+  background-color: #71C0BB;
+  color: #E3EEB2;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button-container button {
+  background-color: #4E6688;
+  color: #E3EEB2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #71C0BB;
+  color: #332D56;
+}
+
+.styled-hr {
+  border: none;
+  height: 2px;
+  background-color: #4E6688;
+  margin: 30px 0;
+}
+
+/* Video Layout */
+.video-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.containervideo, .containervideo2, .containervideo3 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.containervideo2 {
+  flex-direction: row-reverse;
+}
+
+.video, .video-description, .video-description2, .video-description3 {
+  flex: 1 1 300px;
+}
+
+video {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.video-description, .video-description2, .video-description3 {
+  background-color: #71C0BB;
+  color: #E3EEB2;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.buttonbrochure {
+  background-color: #4E6688;
+  color: #E3EEB2;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.buttonbrochure:hover {
+  background-color: #E3EEB2;
+  color: #332D56;
+}
+
+/* Calendar */
+.calendar-heading {
+  text-align: center;
+  color: #E3EEB2;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    height: 800px; /* Adjust the height as needed */
+}
+
+th, td {
+  border: 1px solid #4E6688;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #4E6688;
+  color: #E3EEB2;
+}
+
+td {
+  background-color: #71C0BB;
+  color: #E3EEB2;
+  transition: background 0.3s, color 0.3s;
+}
+
+td:hover {
+  background-color: #4E6688;
+  color: #71C0BB;
+}
+
+th[colspan="7"] {
+  font-size: 1.2em;
+}
+
+
+.system-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.system-container h2 {
+  text-align: left;
+  color: #E3EEB2;
+  margin-bottom: 20px;
+}
+
+.system-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background-color: #71C0BB;
+  color: #E3EEB2;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(-45deg, #4E6688, #71C0BB);
+  border-radius: 50%;
+  opacity: 0.2;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.card:hover::before {
+  animation: spinBackground 6s linear infinite;
+}
+
+@keyframes spinBackground {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #E3EEB2;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.nubutton {
+  background-color: #4E6688;
+  color: #E3EEB2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  font-size: 14px;
+}
+
+.nubutton:hover {
+  background-color: #332D56;
+  color: #E3EEB2;
+}
+
+.button-container a {
+  background-color: #4E6688;
+  color: #E3EEB2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  text-decoration: none;
+  margin-left: auto;
+    margin-right: auto;
+}
+.button-container a:hover {
+  background-color: #71C0BB;
+  color: #332D56;
+}
+
+.fillup {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, #71C0BB 80%, #4E6688 100%);
+    color: #E3EEB2;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(51,45,86,0.18);
+    text-align: center;
+}
+
+.fillup h2 {
+    margin-bottom: 10px;
+    color: #E3EEB2;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.fillup h4 {
+    margin-bottom: 24px;
+    color: #E3EEB2;
+    font-weight: 400;
+}
+
+.fillup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fillup label {
+    align-self: flex-start;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #332D56;
+}
+
+.fillup input[type="text"],
+.fillup input[type="email"],
+.fillup textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 8px;
+    background: #E3EEB2;
+    color: #332D56;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(51,45,86,0.07);
+    transition: background 0.2s, color 0.2s;
+}
+
+.fillup input[type="text"]:focus,
+.fillup input[type="email"]:focus,
+.fillup textarea:focus {
+    outline: 2px solid #4E6688;
+    background: #fff;
+    color: #332D56;
+}
+
+.fillup textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.fillup button[type="submit"] {
+    background-color: #4E6688;
+    color: #E3EEB2;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(51,45,86,0.10);
+}
+
+.fillup button[type="submit"]:hover {
+    background-color: #332D56;
+    color: #E3EEB2;
+    box-shadow: 0 4px 16px rgba(51,45,86,0.18);
+}
+
+@media (max-width: 700px) {
+    .fillup {
+        padding: 18px 8px;
+        max-width: 98vw;
+    }
+    .fillup input[type="text"],
+    .fillup input[type="email"],
+    .fillup textarea {
+        max-width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+  .system-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .navbar li a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .containervideo, .containervideo2, .containervideo3 {
+    flex-direction: column;
+  }
+
+  .video-description, .video-description2, .video-description3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nulogotext img {
+    height: 40px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="nulogotext">
+    <img src="logo.png" alt="NU Logo">
+  </div>
+  <ul class="navbar">
+    <li><a class="active" href="#top">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="image-container">
+    <img src="nubuilding.png" alt="NU Clark Building">
+  </div>
+  <div class="text-container">
+    <h3>WELCOME TO NATIONAL UNIVERSITY</h3>
+    <strong>Home of the nation builders.</strong>
+    <p>
+     For more than 125 years, National University has been recognized for its academic excellence which has formed the country’s most successful movers and shakers in various industries.
+     <br >
+     As an institution, we continue to evolve and expand by making education accessible within your reach.
+        <br>
+        We’re in the business of securing your future and elevating the future of our nation through Education that works.
+    <br>
+    <br>
+    </p>
+    <p>Course:</p>
+    <p id="course"></p>
+  </div>
+  <div class="button-container">
+    <button onclick='document.getElementById("course").innerHTML = "Architecture, <br> BS Computer Engineering, <br> BS Civil Engineering"'>Architecture, Engineering and Technology</button>
+    <button onclick='document.getElementById("course").innerHTML = "BS Accountancy, <br> BS Management Accounting, <br> BS Business Administration Major in Marketing Management"'>Business and Accountancy</button>
+    <button onclick='document.getElementById("course").innerHTML = "BS Information Technology, <br> BS IT with specialization in Mobile and Web Applications"'>Computing & Information Technologies</button>
+    <button onclick='document.getElementById("course").innerHTML = "BS Political Science, <br> BS Psychology, <br> BA Communication"'>Education, Arts and Sciences</button>
+    <button onclick='document.getElementById("course").innerHTML = "ABM, HUMSS, STEM"'>Senior High School</button>
+    <button onclick='document.getElementById("course").innerHTML = "BS Tourism Management"'>Tourism and Hospitality Management</button>
+  </div>
+</div>
+
+<hr class="styled-hr">
+
+<div class="video-container">
+  <div class="containervideo">
+    <div class="video">
+      <video controls>
+        <source src="NU_Clark_Virtual_Campus_Tour.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-description">
+      <h3>NU Clark Virtual Campus Tour</h3>
+      <p>Watch our virtual tour of our brand-new modern facility located in Clark, Pampanga. Discover our state-of-the-art classrooms, labs, and recreational spaces while getting a glimpse of the vibrant campus life at NU Clark. Don’t miss this opportunity to see where your academic journey could begin.
+
+<br><br><strong>Download our brochure.</strong></p>
+      <button class="buttonbrochure">Download Brochure</button>
+    </div>
+  </div>
+
+  <div class="containervideo2">
+    <div class="video">
+      <video controls>
+        <source src="NU_Institutional_Video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-description2">
+      <h3>BECOME A NATIONALIAN</h3>
+      <p>Join us today!</p>
+    </div>
+  </div>
+
+  <div class="containervideo3">
+    <div class="video">
+      <video controls>
+        <source src="NU-Manila_Payment.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-description3">
+      <h3>ENROLL ONLINE</h3>
+      <p>Enroll conveniently online!</p>
+    </div>
+  </div>
+</div>
+
+<hr class="styled-hr">
+<h3 class="calendar-heading">University Calendar</h3>
+<table>
+  <thead>
+    <tr><th colspan="7">May</th></tr>
+    <tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+  </thead>
+  <tbody>
+    <tr><td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+    <tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
+    <tr><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+    <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <a >AY 2024-2025</a>
+  <a >Term 3 (AY 2024-2025)</a>
+</div>
+
+<hr class="styled-hr">
+
+<div class="system-container">
+  <h2>Student Systems</h2>
+  <div class="system-cards">
+    <div class="card">
+      <div class="card-content">
+        <h4>NU Quest</h4>
+        <img src="icons8-account-96.png" alt="NU Portal Icon" style="width: 50px; height: 50px;">
+        <p>Online facility for application, admission, and requirements gathering for new students and transferees.</p>
+        <button class="nubutton">Go to NU Quest</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h4>Online Payment</h4>
+        <img src="icons8-money-96.png" alt="NU LMS Icon" style="width: 50px; height: 50px;">
+        <p>A secure encrypted portal to pay fees and tuition online using credit cards or e-wallets.</p>
+        <button class="nubutton">Go to Online Payment</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h4>NU Information System</h4>
+        <img src="icons8-information-system-64.png" alt="NU Email Icon" style="width: 50px; height: 50px;">
+        <p>Access relevant resources, collaboration tools, communication updates, and information for National University students and faculty.</p>
+        <button class="nubutton">Go to NU Information System</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="styled-hr">
+
+<div class="fillup">
+<h2>Curious to learn more about National University?</h2>
+  <h4>Let’s chat. Fill out this form and we’ll get back to you right away.</h4>
+  <form action="submit_form.php" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="message">Your Question:</label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+    <label for="text">9+10?</label><br>
+    <input type="text" id="text" name="text" required><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.querySelector('.fillup form').addEventListener('submit', function(e) {
+        var answer = document.getElementById('text').value.trim();
+        if (answer === '21') {
+            alert('U dumb ╮(￣ω￣;)╭ why u answer 21?');
+            e.preventDefault();
+        }
+    });
+  </script>
+</div>
+
+
+</body>
+</html>

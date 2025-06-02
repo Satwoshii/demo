@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #332D56;
+            color: #E3EEB2;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #71C0BB;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+
+        .nulogotext img {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #E3EEB2;
+            padding: 10px 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar li a.active {
+            background-color: #4E6688;
+            border-radius: 20px;
+        }
+
+        .navbar li a:hover {
+            color: #4E6688;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 80px; /* Adjusted for header */
+            left: 0;
+            width: 200px;
+            height: calc(100vh - 60px); /* Full height minus header */
+            background: #4E6688;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar button {
+            background-color: #4E6688;
+            color: #E3EEB2;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .sidebar button:hover {
+            background-color: #71C0BB;
+            color: #332D56;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 220px; /* Sidebar width */
+            padding: 80px 20px 20px; /* Top padding for header */
+        }
+
+        .about-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttontitle {
+            background-color: #4E6688;
+            color: #E3EEB2;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px auto;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .buttontitle:hover {
+            background-color: #71C0BB;
+            color: #4E6688;
+        }
+
+        .content {
+            background: rgba(78, 102, 136, 0.7);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 24px rgba(51, 45, 86, 0.15);
+            min-height: 200px;
+        }
+
+        .content h2 {
+            color: #71C0BB;
+            margin-bottom: 12px;
+        }
+
+        .styled-hr {
+            border: none;
+            height: 2px;
+            background-color: #4E6688;
+            margin: 20px 0;
+        }
+
+        .fin {
+        list-style-type: disc;
+        margin-left: 20px;
+        }
+
+        .financial-summary {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        .financial-summary th,
+        .financial-summary td {
+            border: 1px solid #4E6688;
+            padding: 8px 12px;
+            text-align: right;
+        }
+        .financial-summary th {
+            background-color: #4E6688;
+            color: #E3EEB2;
+        }
+        .financial-summary tr:nth-child(even) {
+            background-color: #71C0BB;
+        }
+        .financial-summary caption {
+            caption-side: top;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .financial-summary2 {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        .financial-summary2 th,
+        .financial-summary2 td {
+            border: 1px solid #4E6688;
+            padding: 8px 12px;
+            text-align: right;
+        }
+        .financial-summary2 th {
+            background-color: #4E6688;
+            color: #E3EEB2;
+        }
+        .financial-summary2 tr:nth-child(even) {
+            background-color: #71C0BB;
+        }
+        .financial-summary2 caption {
+            caption-side: top;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #E3EEB2;
+        }
+        .financial-summary2 .bold {
+            font-weight: bold;
+            color: #4E6688;
+        }
+
+        .financial-summary2 .fin {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        /* Darker background for Liabilities and Equity rows */
+        .financial-summary2 .section-header {
+            background-color: #332D56 !important;
+            color: #E3EEB2 !important;
+        }
+        
+       .titleanthem {
+        color: #E3EEB2;
+       }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="nulogotext">
+        <img src="logo.png" alt="NU Logo">
+    </div>
+    <ul class="navbar">
+        <li><a href="Home.html">Home</a></li>
+        <li><a class="active" href="#top">About</a></li>
+        <li><a href="admissions.html">Admissions</a></li>
+    </ul>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <button onclick="show('history')">Brief History</button>
+    <button onclick="show('mission')">Mission and Vision</button>
+    <button onclick="show('dynamic')">Dynamic Filipinism</button>
+    <button onclick="show('core')">Core Values</button>
+    <button onclick="show('Graduate Attributes Intended for Nationalians')">Graduate Attributes
+Intended for Nationalians </button>
+    <button onclick="show('Quality Policy')">Quality Policy</button>
+    <button onclick="show('NU Governance')">NU Governance</button>
+    <button onclick="show('Financial Statement')">Annual Financial Statement</button>
+    <button onclick="show('NU Nazareth School')">NU Nazareth School</button>
+    <button onclick="show('Philippine National Anthem and NU Hymn')">Philippine National Anthem and NU Hymn</button>
+
+</div>
+
+<!-- Main Content -->
+<div class="main">
+    <h4 class="about-title">
+        Explore the milestones that shaped our legacy and understand the driving force behind our commitment to excellence.<br>
+        Click, read, and share the journey of knowledge and excellence.
+    </h4>
+    <button class="buttontitle">Download Brochure</button>
+    <button class="buttontitle">Download Student Handbook</button>
+
+    <hr class="styled-hr">
+
+    <div class="content" id="mainContent">
+       
+    </div>
+</div>
+
+<script>
+function show(section) {
+    const content = document.getElementById('mainContent');
+    if (section === 'history') {
+        content.innerHTML = `<h2>Brief History</h2>
+        <p>A young man, barely 23 years old, had a vision of inculcating among the youth the qualities of competence and leadership, 
+            high moral and spiritual values and development of each individual into a total person.
+             These would be acquired through an educational process guided by the philosophy of Dynamic Filipinism.
+             <br><br>
+             This young man, Don Mariano Fortunato Jhocson , guided by this vision , founded Colegio Filipino, 
+             now NATIONAL UNIVERSITY in August 01, 1900, in Quiapo, City of Manila. It was the first non – sectarian and co – educational institution then.
+              There were only a handful of students at that time in the fledgling School, and they were in the elementary and secondary (High School) levels.
+              Don Mariano, in order to help the school grow, was teacher, director and janitor rolled into one.
+             <br><br>
+             In a short span of 5 years, he offered courses in Business – bookkeeping and accounting, 
+             convinced that thus armed, his students would be financially secure and respectable after graduation. 
+             This led to the changing of the name to Colegio Mercantil , awarding the diploma of Perito Mercantil. A short time later, 
+             the Philippine Law School was opened with the collaboration of the Lacson brothers. Don Mariano saw the dire need for training the youth for leadership and responsibility.
+              He firmly believed that the discipline of Law would turn out men and women who would eventually be advocates for Philippine self government.
+             <br><br>
+             In 1916, the Board of Trustees changed the name from Colegio Mercantil to National Academy. The growth of the Academy was continuous, added Liberal Arts which became the gateway to other disciplines that followed.
+
+After 21 years of educational service, on January 17, 1921, the Board of Trustees applied for and secured permission from the Department of Public Instruction to change the name of the National Academy to NATIONAL UNIVERSITY. On that same day, the University also installed Senator Camilo Osias, one of the most respected and outstanding Filipino educators as President of the University.
+
+Thereafter, the Colleges of Education and Commerce were opened in the same year. During the following years, the Colleges of Pharmacy and Dentistry were opened in 1922. The College of Engineering, offering initially Civil Engineering opened in 1925 and the Normal School in 1930. Sanitary Engineering was initially offered in 1930.
+
+From July, 1945 its facilities have since continuously expanded and the following disciplines were added – Bachelor degrees in Chemical, Electrical, Industrial, Mechanical Engineering and Architecture and Arts. Master in Sanitary Engineering was also organized.
+
+Responding to the needs of industry and modern technology, the University started offering the following courses: Computer Science in 1990, Marine Engineering and in 1994 Computer Engineering and Electronics and Communications Engineering. College of Nursing was offered in 2004, Hotel and Restaurant Management in 2008 and Information Technology in 2009.
+
+On January 01, 1998, a disastrous fire razed four buildings of the University – the Main Building, Law and Commerce Building, Elementary Building and the Graduate School Building. The University was able to re-open its doors after three weeks of unrelenting restoration work.
+
+In the last quarter of year 2008, the SM Group of Companies acquired majority ownership of the National University. The all out support of the SM Group strengthened the university as higher institution with the building of new infrastructure, improved and upgraded laboratory all of which are focused in academic excellence.
+
+Today, the University is engaged in a continuous modernization and upgrading program for its facilities, faculty and sports development. Our new University infrastructure is an 8-storey modern design building with two units of escalators and four units of elevators.
+
+NATIONAL UNIVERSITY is a founding member of the University Athletic Association of the Philippines (UAAP) and is a pioneer of the Philippine Association of Colleges and Universities (PACU). Its international affiliations and memberships include the Association of Southeast Asia Higher Institutions of Learning (ASAIHL) and the International Association of Universities (IAU).
+             
+             </p>`;
+    } else if (section === 'mission') {
+        content.innerHTML = `<h2>Mission and Vision</h2>
+         <p>Guided by the core values and characterized by our cultural heritage of Dynamic Filipinism, National University is committed to providing relevant, innovative and accessible quality education and other development programs.
+            We are committed to our:
+            <br><br>
+            <strong>STUDENTS</strong>, by molding them into life-long learners, ethical and spiritual citizens and self-directed agents of change.
+            <br><br>
+            <strong>FACULTY and EMPLOYEES,</strong>, by enhancing their competencies, stimulating their passions, cultivating their commitment, and providing a just and fulfilling work environment.
+            <br><br>
+            <strong>ALUMNI,</strong>by strengthening their sense of pride through engagement, loyalty and love for their alma mater.
+            <br><br>
+            <strong>INDUSTRY PARTNERS and EMPLOYERS,</strong> through active collaborations, providing them Nationalians who will contribute to their growth and development.
+            <br><br>
+            <strong>COMMUNITY,</strong> y contributing to the improvement of the life conditions and well-being of its members.
+            <br><br>
+            <br><br>
+            <strong>VISION,</strong> We are National University, a dynamic private institution committed to nation building, recognized internationally in education and research.
+            
+            </p>`;
+    } else if (section === 'dynamic') {
+        content.innerHTML = `<h2>Dynamic Filipinism</h2>
+        <p>
+            Dynamic Filipinism refers to internalizing all that is best in the Filipino, with the time-honored values and deep spirituality stamped upon our education for Philippine citizenship that is compatible with global progress, kinship, and universal culture guided by intense nationalism, democracy, and evolving internationalism.
+            </p>`;
+    } else if (section === 'core') {
+        content.innerHTML = `<h2>Core Values</h2>
+        <p><strong>INTEGRITY</strong> <br>
+            This is a reflection of who and what we are as individuals. We are honest, we are fair, we are just, and we will do right by anybody at all times.
+            <br><br>
+            <strong>COMPASSION</strong> <br>
+            This shows how much we value people. We can feel what they feel and we can treat each one with care and understanding regardless of any situation.
+            <br><br>
+            <strong>INNOVATION</strong> <br>
+           We continuously introduce creative change in something established not for the sake of change itself, but with the purpose of constantly improving and being responsive to the times.
+            <br><br>
+            <strong>RESILIENCE</strong> <br>
+            An evidence of the strength of our character. We are not easily discouraged by trials and tribulations, but we know how to roll with the punches and spring back into action.
+            <br><br>
+            <strong>PATRIOTISM</strong> <br>
+          Nationalism is rightfully at the center of our institution and community. We display undying and devoted love for our country and everything that it stands for.
+            
+            
+            
+            
+            </p>`;
+    }
+    else if (section === 'Graduate Attributes Intended for Nationalians') {
+        content.innerHTML = `<h2>Graduate Attributes Intended for Nationalians</h2>
+        <p>
+        <strong>Leadership and Teamwork</strong><br>
+        <br>
+        <strong>Responsible Citizenship</strong><br>
+        <br>
+        <strong>Innovative, Creative, and Critical Thinking</strong><br>
+        <br>
+        <strong>Academic and Professional Competence</strong><br>
+        <br>
+        <strong>Effective Communication</strong><br>
+        <br>
+        <strong>Whole-person Character</strong><br>
+        <br>
+        <strong>Life and Career Skills Orientation</strong><br>
+        <br>
+        <strong>Technological Literacy</strong><br>
+            </p>`;
+    } else if (section === 'Quality Policy') {
+        content.innerHTML = `<h2>Quality Policy</h2>
+        <p>
+        Guided by the philosophy of Dynamic Filipinism, the National University has developed leaders since its establishment in 1900. It upholds high standards of educational services for the holistic development of lifelong learners.
+<br><br>
+The President and CEO, with the management team, shall formulate the quality policy of the National University. The quality policy supports the vision, mission, and the objectives of the University.
+<br><br>
+The management, faculty, and staff commit to continuously improve the efficiency of operational and management processes to meet ISO 21001:2018 Management Systems for Educational Organizations (EOMS) standard and other applicable statutory, regulatory, and institutional requirements.
+        </p>`;
+    } else if (section === 'NU Governance') {
+        content.innerHTML = `<h2>NU Governance</h2>
+        <p>
+        <strong>Corporate Governance</strong><br>
+        National University, Philippines an institution that holds accountability, transparency, clarity, checks & balances, and adherence to the highest level. This ensures that a good corporate governance is in place in the University, laying down the framework for creating long-term trust between NU and its stakeholders. (Faculty Manual 2023, Chapter 2)
+        <br><br>
+        <strong>Training and Development</strong><br>
+        As its most important asset, National University recognizes the need to develop knowledge, skills, attitudes, and behavior of all its human resources. It does so to achieve the optimum levels of productivity and become effective in their work assignments. Not only will National University grow with a well–trained human resources but aids in the personal development of employees. National University shall plan, organize, and implement continuing training and development programs to address the needs or gaps between the employee’s competence level and the desired competence level. (Faculty Manual 2023, Chapter 7)
+        <br><br>
+        <strong>Code of Discipline</strong><br>
+        The Human Resource Department (HRD) is primarily bound to administer, supervise, and endorse the rules and regulations stated in the Faculty and Employee Manuals. All matters in connection to this shall be directly handled by the HR Officer or his duly designated representative. A Disciplinary Committee deliberates and decides on each disciplinary case. (Faculty Manual/Employee Manual 2023, Chapter 10)
+        <br><br>
+        <strong>Grievance Policy and Procedure</strong><br>
+        National University provides for amicable internal procedures to settle grievances. All faculty shall be treated fairly and be free from restraint, interference, coercion, discrimination, or reprisal in presenting grievances. Due process shall be always observed, and all cases shall be disposed of expeditiously and judiciously. No faculty nor employee shall be denied due process; dismissed, suspended, demoted, or sanctioned with disciplinary action without just, lawful, and valid cause. (Faculty Manual/Employee Manual 2023, Chapter 10)
+        <br><br>
+        <strong>Customer Service Satisfaction</strong><br>
+        As the institution operates a standard type and range of services, customer satisfaction and quality are achieved by operation in accordance with the documented quality system. Specific customer requirements are identified and documented during the Management Review process, allowing these requirements to be communicated and achieved, ensuring satisfaction of all customer-declared needs. (NU Quality Management System Manual 2022, Chapter 8)
+        <br><br>
+
+<br>
+<strong>Anti-Bribery and Corruption</strong><br>
+National University is committed to conducting business with the highest standards of integrity and prohibits all forms of bribery and corruption. The Anti-Bribery and Corruption Policy outlines the responsibilities of all employees and stakeholders to prevent, detect, and report any acts of bribery or corruption within the institution.<br><br>
+
+<strong>Annual Financial Statement</strong><br>
+National University ensures transparency and accountability by providing access to its Annual Financial Statements. <br>
+<a href="financial_statement_2020_2021.pdf" target="_blank" style="color:#E3EEB2;text-decoration:underline;">Annual Financial Statement 2020-2021</a><br><br>
+
+<strong>Minutes of Meeting</strong><br>
+The University maintains records of key meetings to ensure transparency and continuous improvement. <br>
+2023-2024 – QMO-NU Baliwag Alignment Meeting
+        </p>`;
+    } else if (section === 'Financial Statement') {
+        content.innerHTML = `<h2>Annual Financial Statement</h2>
+        <ol>
+            <h3>Financial Highlights</h3>
+            <li class="fin">Operating revenue decreased by 15% to PhP505M, while operating expenses by 11% to PhP466M.</li>
+            <li class="fin">Salaries and benefits decreased by 4% to PhP272M in 2021.</li>
+            <li class="fin">Additional capital investments in campus facilities and new constructions amounts to PhP96M during the year.</li>
+            <li class="fin">Borrowing increased by 94% to PhP669M in 2021.</li>
+            <li class="fin">The school generated an operating surplus of PhP11M, compared with PhP68M in prior year.</li>
+            <li class="fin">NUI ended fiscal year 2021 with reserve balance of PhP268M compared with PhP258M a year earlier, inclusive of PhP100M reserves appropriated for the expansion activities of the university.</li>
+            <li class="fin">The school’s net assets increased to PhP466M, from PhP455M at the end of 2020.</li>
+            <li class="fin">Separate Statement of Comprehensive Income Summary</li>
+        <br><br>
+        <strong>Statement of Comprehensive Income Summary</strong><br>
+        in PHP ‘Millions<br>
+        Fiscal years ended May 31<br>
+
+        <table class="financial-summary">
+    <caption>Financial Summary (in million)</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th>2021</th>
+            <th>2020</th>
+            <th>Movement</th>
+            <th>%</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Net revenue</td><td>504.6</td><td>595.1</td><td>(90.5)</td><td>-15%</td></tr>
+        <tr><td>Cost of service</td><td>226.8</td><td>234.1</td><td>(7.3)</td><td>-3%</td></tr>
+        <tr><td>Gross income</td><td>277.8</td><td>361.0</td><td>(83.2)</td><td>-23%</td></tr>
+        <tr><td>Operating expense</td><td>239.3</td><td>288.6</td><td>(49.3)</td><td>-17%</td></tr>
+        <tr><td>Income from operations</td><td>38.5</td><td>72.4</td><td>(33.9)</td><td>-47%</td></tr>
+        <tr><td>Interest expense</td><td>(28.9)</td><td>(15.3)</td><td>(13.6)</td><td>89%</td></tr>
+        <tr><td>Bank charges</td><td>(0.1)</td><td>(1.2)</td><td>1.1</td><td>-92%</td></tr>
+        <tr><td>Other income</td><td>9.0</td><td>19.7</td><td>(10.7)</td><td>-54%</td></tr>
+        <tr><td>Income before income tax</td><td>18.5</td><td>75.6</td><td>(57.1)</td><td>-76%</td></tr>
+        <tr><td>Income tax expense</td><td>7.1</td><td>7.5</td><td>(0.4)</td><td>-5%</td></tr>
+        <tr><td>Net income</td><td>11.4</td><td>68.1</td><td>(56.7)</td><td>-83%</td></tr>
+    </tbody>
+</table>
+
+<br><br>
+<strong>Statement of Financial Position</strong>
+<br>
+Fiscal years ended May 31
+
+
+<table class="financial-summary2">
+    <caption>Balance Sheet Summary (in million)</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th>2021</th>
+            <th>2020</th>
+            <th>Movement</th>
+            <th>%</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Current assets</td><td>1,163.0</td><td>547.5</td><td>615.5</td><td>112%</td></tr>
+        <tr><td>Noncurrent assets</td><td>553.9</td><td>808.8</td><td>(254.9)</td><td>-32%</td></tr>
+        <tr><td class="bold">Total assets</td><td class="bold">1,716.9</td><td class="bold">1,356.3</td><td class="bold">360.6</td><td class="bold">27%</td></tr>
+
+        <tr><td colspan="5" style="background-color: #ddd; text-align: center; font-weight: bold;"></td></tr>
+        <tr><td>Current liabilities</td><td>891.1</td><td>710.8</td><td>180.3</td><td>25%</td></tr>
+        <tr><td>Noncurrent liabilities</td><td>359.7</td><td>190.0</td><td>169.7</td><td>89%</td></tr>
+        <tr><td class="bold">Total liabilities</td><td class="bold">1,250.8</td><td class="bold">900.8</td><td class="bold">350.0</td><td class="bold">39%</td></tr>
+
+        <tr><td colspan="5" style="background-color: #ddd; text-align: center; font-weight: bold;"></td></tr>
+        <tr><td>Capital stock</td><td>197.7</td><td>197.7</td><td>-</td><td>0%</td></tr>
+        <tr><td>Retained earnings</td><td>268.4</td><td>257.8</td><td>10.6</td><td>4%</td></tr>
+        <tr><td class="bold">Total equity</td><td class="bold">466.1</td><td class="bold">455.5</td><td class="bold">10.6</td><td class="bold">2%</td></tr>
+
+        <tr><td class="bold">Total liabilities and equity</td><td class="bold">1,716.9</td><td class="bold">1,356.3</td><td class="bold">360.6</td><td class="bold">27%</td></tr>
+    </tbody>
+</table>
+
+<br><br>
+<strong>Statement of Cash Flows</strong><br>
+in PHP ‘Millions<br>
+Fiscal years ended May 31<br>
+
+<table class="financial-summary2">
+    <caption>Cash Flow Summary (in million)</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th>2021</th>
+            <th>2020</th>
+            <th>Movement</th>
+            <th>%</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tuition fees</td>
+            <td>392.2</td>
+            <td>404.8</td>
+            <td>(12.6)</td>
+            <td>-3%</td>
+        </tr>
+        <tr>
+            <td>Miscellaneous</td>
+            <td>246.5</td>
+            <td>320.7</td>
+            <td>(74.2)</td>
+            <td>-23%</td>
+        </tr>
+        <tr>
+            <td>Gross revenue</td>
+            <td>638.7</td>
+            <td>725.4</td>
+            <td>(86.7)</td>
+            <td>-12%</td>
+        </tr>
+        <tr>
+            <td>Discounts</td>
+            <td>(134.1)</td>
+            <td>(130.3)</td>
+            <td>(3.8)</td>
+            <td>3%</td>
+        </tr>
+        <tr>
+            <td>Net revenue</td>
+            <td>504.6</td>
+            <td>595.2</td>
+            <td>(90.5)</td>
+            <td>-15%</td>
+        </tr>
+    </tbody>
+</table>
+
+<br><br>
+<strong>Cost and Operating Expenses</strong><br>
+in PHP ‘Millions<br>
+Fiscal years ended May 31<br>
+
+<table class="financial-summary2">
+    <caption>Cost and Operating Expenses Summary (in million)</caption>
+    <thead>
+        <tr>
+            <th>Particulars</th>
+            <th colspan="3">2021</th>
+            <th colspan="3">2021</th>
+            <th rowspan="2">Variance</th>
+            <th rowspan="2">%</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>COS</th>
+            <th>OPEX</th>
+            <th>Total</th>
+            <th>COS</th>
+            <th>OPEX</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Salaries and employee benefit</td>
+            <td>178.3</td><td>93.6</td><td>271.9</td>
+            <td>170.1</td><td>113.3</td><td>283.4</td>
+            <td>-11.5</td><td>-0.04</td>
+        </tr>
+        <tr>
+            <td>Academic development costs</td>
+            <td>4.1</td><td>0</td><td>4.1</td>
+            <td>8.1</td><td>0</td><td>8.1</td>
+            <td>-4</td><td>-0.49</td>
+        </tr>
+        <tr>
+            <td>Student activities</td>
+            <td>1.1</td><td>0</td><td>1.1</td>
+            <td>0</td><td>0</td><td>–</td>
+            <td>1.1</td><td>N/A</td>
+        </tr>
+        <tr>
+            <td>Utilities</td>
+            <td>0</td><td>33.8</td><td>33.8</td>
+            <td>0</td><td>29.7</td><td>29.7</td>
+            <td>4.1</td><td>0.14</td>
+        </tr>
+        <tr>
+            <td>Athletic department</td>
+            <td>0</td><td>18.5</td><td>18.5</td>
+            <td>0</td><td>34.9</td><td>34.9</td>
+            <td>-16.4</td><td>-0.47</td>
+        </tr>
+        <tr>
+            <td>Depreciation</td>
+            <td>42.4</td><td>15.2</td><td>57.6</td>
+            <td>53</td><td>15.6</td><td>68.6</td>
+            <td>-11</td><td>-0.16</td>
+        </tr>
+        <tr>
+            <td>Taxes and licenses</td>
+            <td>0</td><td>14.8</td><td>14.8</td>
+            <td>0</td><td>10.4</td><td>10.4</td>
+            <td>4.4</td><td>0.42</td>
+        </tr>
+        <tr>
+            <td>Outsourced services</td>
+            <td>0</td><td>10.3</td><td>10.3</td>
+            <td>0</td><td>12.1</td><td>12.1</td>
+            <td>-1.8</td><td>-0.15</td>
+        </tr>
+        <tr>
+            <td>Retirement costs</td>
+            <td>0</td><td>7.6</td><td>7.6</td>
+            <td>0</td><td>2.5</td><td>2.5</td>
+            <td>5.1</td><td>1.99</td>
+        </tr>
+        <tr>
+            <td>Impairment losses</td>
+            <td>0</td><td>1.4</td><td>1.4</td>
+            <td>0</td><td>16.4</td><td>16.4</td>
+            <td>-15</td><td>-0.92</td>
+        </tr>
+        <tr>
+            <td>Maintenance</td>
+            <td>0</td><td>6.4</td><td>6.4</td>
+            <td>0</td><td>11.3</td><td>11.3</td>
+            <td>-4.9</td><td>-0.43</td>
+        </tr>
+        <tr>
+            <td>All others</td>
+            <td>0.9</td><td>37.8</td><td>38.7</td>
+            <td>2.9</td><td>42.4</td><td>45.3</td>
+            <td>-6.6</td><td>-0.15</td>
+        </tr>
+        <tr>
+            <td><b>Total expenses</b></td>
+            <td>226.8</td><td>239.3</td><td>466.1</td>
+            <td>234.1</td><td>288.6</td><td>522.7</td>
+            <td>-56.6</td><td>-0.11</td>
+        </tr>
+    </tbody>
+</table>
+
+        </p>`;
+
+    } else if (section === 'NU Nazareth School') {
+        content.innerHTML = `<h2>NU Nazareth School</h2>
+        <p>
+        <strong>A BRIEF HISTORY OF NU-NAZARETH SCHOOL</strong><br>
+        The story of NU-Nazareth School is filled with courage and passion for education that imbues the youth with deep faith and genuine love for God the Father and true spirit of nationalism. 
+        Her humble beginning visualized the building of an authentic Christian community with compassion for the poor and where God is Father, 
+        and everyone is a brother or a sister to each other.
+        <br><br>
+        The Hijas de Jesus sisters first came to the Philippines on June 18, 1932.
+         They acquired a permit from the government to open Nazareth School starting with three elementary grade levels, 
+         adding one level each year until it was able to graduate its first batch of high school students in 1956.
+         Nazareth School started out as a Catholic School offering basic education run by the Hijas de Jesus Congregation until its merging with NU on March 23, 2013.
+         <br><br>
+         In 2008, the SM Group of Companies (the largest retail business in the Philippines) acquired majority ownership of the National University (NU) which offers tertiary education. 
+         In 2013, the SM Group of Companies acquired ownership of Nazareth School and on March 23, 2013,
+          NU Basic Education merged with Nazareth School and is now known as Nazareth School of National University or NU-Nazareth School.
+          With the merging, NU-Nazareth School committed to keeping the Catholic educational identity of Nazareth School.
+           NU started to upgrade the physical facilities and administration of the school while the Hijas de Jesus sisters continued the pastoral ministry and Catholic formation of students and the educative community. 
+           It was a destiny that binds the school to its origins, as the Holy Family of Nazareth Chapel at the NU-Nazareth campus was consecrated on the same day that they came to the Philippines – June 18, 2019.
+              <br><br>
+        The first years of the merging were blessed with an evident increase in student population and achievements in sports.
+        Then came the piloting year for the implementation of the K-12 Program. In the first year in 2017, NU-Nazareth School started with thirteen (13) sections of Grade 11: four (4) ABM classes, one (1) GAS class, two (2) HUMMS classes, and six (6) STEM classes. 
+        On the second year, the enrollment in Grade 11 more than doubled to as many as twenty-four sections: eight ABM classes, two GAS classes, four HUMMS classes, and 10 STEM classes while the same number of Grade 11 sections the previous years moved up to Grade 12.
+        The first batch of Grade 12 students under the K-12 Program of the Department of Education (DepEd) graduated on April 9, 2018.
+        </p>`;
+    } else if (section === 'Philippine National Anthem and NU Hymn') {
+        content.innerHTML = `<h2>Philippine National Anthem and NU Hymn</h2>
+        <p>
+        <strong class = "titleanthem">Philippine National Anthem</strong><br>
+        <img src="vidpic1.png" alt="Philippine National Anthem" style="max-width:100%;height:auto;">
+        <br><br>
+        <strong  class = "titleanthem">NU Hymn</strong><br>
+        <img src="vidpic2.png" alt="NU Hymn" style="max-width:100%;height:auto;">
+        <br><br>
+        <strong class = "titleanthem">NU Hymn lyrics</strong><br>
+       I pledge my life, my honor<br>
+To thee my alma mater<br>
+Who made me grow in wisdom<br>
+Gave me love and made me strong<br>
+I shall defend thy good name<br>
+I’ll strive to bring thee more fame<br>
+<br>
+I shall wave thee gold and blue<br>
+The colors of National U<br>
+I shall wave thee gold and blue<br>
+The colors of National U<br>
+<br>
+I pledge my life, my honor<br>
+To thee my alma mater<br>
+Who made me grow in wisdom<br>
+Gave me love and made me strong<br>
+I shall defend thy good name<br>
+I’ll strive to bring thee more fame<br>
+<br>
+I shall wave thee gold and blue<br>
+The colors of National U<br>
+I shall wave thee gold and blue<br>
+The colors of National U<br>
+
+        </p>`;
+    }
+    
+    
+    
+    
+    
+    
+    
+    else {
+        content.innerHTML = `<h2>Error</h2><p>Section not found.</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
